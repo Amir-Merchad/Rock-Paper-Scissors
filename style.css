@@ -155,6 +155,8 @@
     cursor: pointer;
     min-width: 80px;
     min-height: 80px;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 @media (max-width: 480px) {
@@ -177,6 +179,7 @@
 .rock:active, .paper:active, .scissors:active, .restart-button:active{
     transform: scale(0.96);
     box-shadow: 0 2px #2e7d32;
+    touch-action: manipulation;
 }
 
 @media (max-width: 768px) {
@@ -226,6 +229,8 @@
     cursor: pointer;
     min-width: 80px;
     min-height: 80px;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 .restart-button:hover {
