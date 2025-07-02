@@ -174,7 +174,7 @@
     background-color: #4e555b;
 }
 
-.rock:active, .paper:active, .scissors:active {
+.rock:active, .paper:active, .scissors:active, .restart-button:active{
     transform: scale(0.96);
     box-shadow: 0 2px #2e7d32;
 }
