@@ -61,6 +61,7 @@
 }
 
 .gameBody{
+    font-family: 'Roboto', sans-serif;
     background-color: #222831;
     display: flex;
     flex-direction: column;
@@ -71,11 +72,42 @@
 }
 
 .header{
-    padding: 20px;
+    padding: 40px;
     margin: 0;
     text-align: center;
     background-color: #111720;
     color: #f8c44f;
-    font-size: 46px;
+    font-size: 36px;
+    font-weight: 600;
     font-family: 'Press Start 2P',sans-serif;
+}
+
+.status{
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    margin: 40px 20px 0px 20px;
+    font-weight: 600;
+}
+
+.winner{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 20px 20px 20px;
+    font-weight: 600;
+}
+
+.weapon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    height: 100px;
+}
+
+.p1-weapon, .p2-weapon {
+    padding: 0;
+    margin: 0;
+    font-size: 80px;
 }
