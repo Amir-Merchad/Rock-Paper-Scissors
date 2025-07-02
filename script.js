@@ -42,22 +42,10 @@ function playRound(player1Choice, player2Choice) {
 
 function playGame() {
     for (let i = 0; i < 5; i++) {
-        console.log(`Round ${i + 1}`);
         let player1Choice = getPlayer1Choice(player1Name).toLowerCase();
         let player2Choice = getPlayer2Choice(player2Name).toLowerCase();
-        if (!(player1Choice !== "rock" && player1Choice !== "paper" && player1Choice !== "scissors") &&
-            !(player2Choice !== "rock" && player2Choice !== "paper" && player2Choice !== "scissors")) {
-            console.log(`${player1Name} chose: ${player1Choice}, ${player2Name} chose: ${player2Choice}`);
-            playRound(player1Choice, player2Choice);
-            console.log(`${player1Name} Score: ${player1Choice}, ${player2Name} Score: ${player2Choice}`);
-        } else {
-            console.log("Invalid choice. Please pick rock, paper, or scissors.");
-            i--;
-        }
+        playRound(player1Choice, player2Choice);
     }
-    console.log(`${player1Name} Score: ${player1Score}, ${player2Name} Score: ${player2Score}`);
-    console.log(`${player1Score === player2Score ? " it's a tie" : (player1Score > player2Score ? `The winner is: ${player1Name}` : `The winner is: ${player2Name}`)}`)
-    console.log("Game over!");
 }
 
 function humanVsComputer() {
