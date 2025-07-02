@@ -71,6 +71,7 @@
     min-height: 100vh;
 }
 
+
 .header{
     padding: 40px;
     margin: 0;
@@ -81,7 +82,6 @@
     font-weight: 600;
     font-family: 'Press Start 2P',sans-serif;
     text-shadow: 0 0 4px #f4cb8c;
-    flex: 1;
 }
 
 .status{
@@ -90,7 +90,6 @@
     text-align: center;
     margin: 40px 20px 0 20px;
     font-weight: 600;
-    flex: 1;
 }
 
 .winner{
@@ -99,7 +98,6 @@
     text-align: center;
     margin: 20px 20px 20px 20px;
     font-weight: 600;
-    flex: 1
 }
 
 .weapon{
@@ -108,7 +106,6 @@
     align-items: center;
     gap: 100px;
     height: 100px;
-    flex: 1
 }
 
 .p1-weapon, .p2-weapon {
@@ -123,7 +120,6 @@
     align-items: center;
     gap: 100px;
     margin-top: 20px;
-    flex: 1
 }
 .p1-score, .p2-score {
     color: white;
@@ -138,7 +134,14 @@
     align-items: center;
     gap: 50px;
     height: 100px;
-    flex: 1
+}
+
+@media (max-width: 480px) {
+    .selector {
+        flex-direction: column;
+        gap: 1.5rem;
+        height: auto;
+    }
 }
 
 .rock, .paper, .scissors {
@@ -149,6 +152,8 @@
     margin: 0;
     font-size: 90px;
     cursor: pointer;
+    min-width: 80px;
+    min-height: 80px;
 }
 
 .rock:hover, .paper:hover,.scissors:hover {
@@ -193,7 +198,7 @@
 .footer{
     text-align: center;
     color: white;
-    margin-top: 40px;
+    margin-top: auto;
     padding: 10px 0;
     background-color: #111720;
 }
@@ -201,3 +206,8 @@
     color: #f8c44f;
     text-decoration: none;
 }
+
+.header, .status, .winner, .weapon, .score, .selector {
+    flex: 0 1 auto;
+}
+
