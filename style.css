@@ -65,10 +65,10 @@
     background-color: #222831;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 0;
     padding: 0;
-    flex: 1;
+    min-height: 100vh;
 }
 
 .header{
@@ -81,6 +81,7 @@
     font-weight: 600;
     font-family: 'Press Start 2P',sans-serif;
     text-shadow: 0 0 4px #f4cb8c;
+    flex: 1;
 }
 
 .status{
@@ -89,6 +90,7 @@
     text-align: center;
     margin: 40px 20px 0 20px;
     font-weight: 600;
+    flex: 1;
 }
 
 .winner{
@@ -97,6 +99,7 @@
     text-align: center;
     margin: 20px 20px 20px 20px;
     font-weight: 600;
+    flex: 1
 }
 
 .weapon{
@@ -105,6 +108,7 @@
     align-items: center;
     gap: 100px;
     height: 100px;
+    flex: 1
 }
 
 .p1-weapon, .p2-weapon {
@@ -119,6 +123,7 @@
     align-items: center;
     gap: 100px;
     margin-top: 20px;
+    flex: 1
 }
 .p1-score, .p2-score {
     color: white;
@@ -133,6 +138,7 @@
     align-items: center;
     gap: 50px;
     height: 100px;
+    flex: 1
 }
 
 .rock, .paper, .scissors {
@@ -182,4 +188,16 @@
         font-size: 60px;
         padding: 10px;
     }
+}
+
+.footer{
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    padding: 10px 0;
+    background-color: #111720;
+}
+.mygithub{
+    color: #f8c44f;
+    text-decoration: none;
 }
