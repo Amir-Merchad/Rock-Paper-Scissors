@@ -80,13 +80,14 @@
     font-size: 36px;
     font-weight: 600;
     font-family: 'Press Start 2P',sans-serif;
+    text-shadow: 0 0 4px #f4cb8c;
 }
 
 .status{
     color: white;
     font-size: 32px;
     text-align: center;
-    margin: 40px 20px 0px 20px;
+    margin: 40px 20px 0 20px;
     font-weight: 600;
 }
 
@@ -109,5 +110,41 @@
 .p1-weapon, .p2-weapon {
     padding: 0;
     margin: 0;
-    font-size: 80px;
+    font-size: 90px;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 20px;
+}
+.p1-score, .p2-score {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.selector{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    height: 100px;
+}
+
+.rock, .paper, .scissors {
+    border-radius: 12px;
+    background-color: #393e45;
+    border-style: none;
+    padding: 20px;
+    margin: 0;
+    font-size: 90px;
+    cursor: pointer;
+}
+
+.rock:hover, .paper:hover,.scissors:hover {
+    background-color: #4e555b;
 }
