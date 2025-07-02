@@ -89,6 +89,49 @@
     text-shadow: 0 0 4px #f4cb8c;
 }
 
+.homeButton{
+    position: absolute;
+    top: 32px;
+    left: 20px;
+    background-color: #393e45;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.homeButton:active {
+    transform: scale(0.95);
+    background-color: #4e555b;
+}
+
+@media (max-width: 765px) {
+    .homeButton {
+        top: 50px;
+        left: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .homeButton {
+        top: 25px;
+        left: 12px;
+        padding: 5px 5px 5px 5px;
+        font-size: 24px;
+    }
+}
+
 .status{
     color: white;
     font-size: 32px;
@@ -247,5 +290,24 @@
 .mygithub{
     color: #f8c44f;
     text-decoration: none;
+}
+
+body.page-enter {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+body.page-enter-active {
+    opacity: 1;
+}
+
+/* Fade out on page leave */
+body.page-exit {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+body.page-exit-active {
+    opacity: 0;
 }
 

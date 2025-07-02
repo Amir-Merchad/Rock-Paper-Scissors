@@ -1,5 +1,4 @@
 let choices = ["rock", "paper", "scissors"];
-let results = [`Player1 wins!`, "Player2 wins!", "It's a tie!"];
 let player1Score = 0;
 let player2Score = 0;
 let player1Name = "";
@@ -203,3 +202,32 @@ function computerVsComputer() {
     window.location.href = "game.html";
     */
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-enter');
+    requestAnimationFrame(() => {
+        document.body.classList.add('page-enter-active');
+    });
+});
+
+// Function to handle transition + navigation
+function navigateWithFade(url) {
+    document.body.classList.add('page-exit');
+    requestAnimationFrame(() => {
+        document.body.classList.add('page-exit-active');
+    });
+    setTimeout(() => {
+        window.location.href = url;
+    }, 400); // match with CSS transition duration
+}
+
+// Attach event listeners to all buttons or links you want to have this effect
+document.querySelectorAll('button[data-fade-link], a[data-fade-link]').forEach(elem => {
+    elem.addEventListener('click', e => {
+        e.preventDefault();
+        const url = elem.getAttribute('data-fade-link') || elem.href;
+        if (url) {
+            navigateWithFade(url);
+        }
+    });
+});
