@@ -4,9 +4,16 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
 	<meta charset="UTF-8">
-	<title>Rock Paper Scissors</title>
+	<title>Game</title>
 </head>
-<body>
-
+<body class="indexBody">
+	<div class="start-container">
+		<h1>Choose Mode</h1>
+		<div class="mode-container">
+			<button onclick="humanVsHuman()" class="player-button">🧍‍♂️human vs human🧍‍♂️</button>
+			<button onclick="humanVsComputer()" class="player-button">🧍‍♂️human vs computer 🤖</button>
+			<button onclick="computerVsComputer()" class="player-button">🤖 computer vs computer 🤖</button>
+		</div>
+	</div>
 </body>
 </html>

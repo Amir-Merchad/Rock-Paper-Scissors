@@ -5,17 +5,17 @@ let player2Score = 0;
 let player1Name = "";
 let player2Name = "";
 
-function getPlayer2Choice(name){
-    if (name === "" || name === "Computer 2") {
+function getPlayer2Choice(name) {
+    if (name === "Computer" || name === "Computer 2") {
         let x = Math.floor(Math.random() * choices.length);
         return choices[x];
-    } else {
-        return String(window.prompt("Enter Rock, Paper or Scissors", ""));
+    } else if (name === "Player" || name === "Player1" || name === "Player2") {
+        alert("ERROR!")
     }
 }
 
-function getPlayer1Choice(name){
-    if (name === "" || name === "Computer 1") {
+function getPlayer1Choice(name) {
+    if (name === "Computer") {
         let y = Math.floor(Math.random() * choices.length);
         return choices[y];
     } else {
@@ -23,14 +23,6 @@ function getPlayer1Choice(name){
     }
 }
 
-function computerName() {
-    if (player1Name === "") {
-        player1Name = "Computer 1";
-    }
-    if (player2Name === "") {
-        player2Name = "Computer 2";
-    }
-}
 
 function playRound(player1Choice, player2Choice) {
     if (player1Choice === player2Choice) {
@@ -48,16 +40,8 @@ function playRound(player1Choice, player2Choice) {
     }
 }
 
-function roundsToPlay() {
-    return prompt("How many rounds do you want to play?", "1");
-}
-
-function playGame(){
-    player1Name = prompt("Enter Player 1 name, leave blank for Computer", "Computer 1");
-    player2Name = prompt("Enter Player 2 name, leave blank for Computer", "Computer 2");
-    computerName()
-    let rounds = roundsToPlay();
-    for (let i = 0; i < rounds; i++) {
+function playGame() {
+    for (let i = 0; i < 5; i++) {
         console.log(`Round ${i + 1}`);
         let player1Choice = getPlayer1Choice(player1Name).toLowerCase();
         let player2Choice = getPlayer2Choice(player2Name).toLowerCase();
@@ -75,4 +59,27 @@ function playGame(){
     console.log(`${player1Score === player2Score ? " it's a tie" : (player1Score > player2Score ? `The winner is: ${player1Name}` : `The winner is: ${player2Name}`)}`)
     console.log("Game over!");
 }
-playGame();
+
+function humanVsComputer() {
+    player1Name = 'Player'
+    player2Name = "Computer";
+    window.location.href = "game.html";
+}
+
+function humanVsHuman() {
+    alert("Under construction, please try again later. :)");
+    /*
+    player1Name = 'Player1'
+    player2Name = "Player2";
+    window.location.href = "game.html";
+    */
+}
+
+function computerVsComputer() {
+    alert("Under construction, please try again later. :)");
+    /*
+    player1Name = 'Computer 1';
+    player2Name = "Computer 2";
+    window.location.href = "game.html";
+    */
+}
