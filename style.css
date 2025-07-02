@@ -71,6 +71,11 @@
     min-height: 100vh;
 }
 
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
 .header{
     padding: 40px;
@@ -197,6 +202,29 @@
         font-size: 60px;
         padding: 10px;
     }
+}
+
+.restart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.restart-button{
+    border-radius: 12px;
+    background-color: #393e45;
+    border-style: none;
+    padding: 10px;
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    cursor: pointer;
+    min-width: 80px;
+    min-height: 80px;
+}
+
+.restart-button:hover {
+    background-color: #4e555b;
 }
 
 .footer{
