@@ -103,9 +103,10 @@
 .weapon{
     display: flex;
     justify-content: center;
+    flex-direction: row;
     align-items: center;
     gap: 100px;
-    height: 100px;
+    height: auto;
 }
 
 .p1-weapon, .p2-weapon {
@@ -129,19 +130,14 @@
 
 .selector{
     margin-top: 40px;
+    margin-bottom: 40px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 50px;
-    height: 100px;
-}
-
-@media (max-width: 480px) {
-    .selector {
-        flex-direction: column;
-        gap: 1.5rem;
-        height: auto;
-    }
+    height: auto;
+    flex-wrap: nowrap;
 }
 
 .rock, .paper, .scissors {
@@ -156,16 +152,24 @@
     min-height: 80px;
 }
 
+@media (max-width: 480px) {
+    .selector {
+        flex-direction: row;
+        gap: 1.5rem;
+        height: auto;
+    }
+    .rock, .paper, .scissors {
+        width: auto;
+        height: auto;
+        flex-wrap: nowrap;
+    }
+}
+
 .rock:hover, .paper:hover,.scissors:hover {
     background-color: #4e555b;
 }
 
 @media (max-width: 768px) {
-    .weapon, .score, .selector {
-        flex-direction: column;
-        gap: 20px;
-    }
-
     .p1-weapon, .p2-weapon {
         font-size: 60px;
     }
@@ -205,9 +209,5 @@
 .mygithub{
     color: #f8c44f;
     text-decoration: none;
-}
-
-.header, .status, .winner, .weapon, .score, .selector {
-    flex: 0 1 auto;
 }
 
