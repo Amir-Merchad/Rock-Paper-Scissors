@@ -113,6 +113,8 @@ function resetGame() {
     player2Score = 0;
     p1score.textContent = "Player 1: " + player1Score.toString();
     p2score.textContent = "Player 2: " + player2Score.toString();
+    p1Weapon.textContent = "❔";
+    p2Weapon.textContent = "❔";
 }
 
 function playRound(player1Choice, player2Choice) {
@@ -224,7 +226,6 @@ function roundDone() {
 }
 
 function computerPlay() {
-    if (round % 2 === 0) {
         let x = Math.floor(Math.random() * choices.length);
         if (x === 0) {
             player1Choice = "rock";
@@ -236,7 +237,6 @@ function computerPlay() {
             player1Choice = "scissors";
             round++;
         }
-    } else if (round % 2 !== 0) {
         let y = Math.floor(Math.random() * choices.length);
         if (y === 0) {
             player2Choice = "rock";
@@ -251,7 +251,6 @@ function computerPlay() {
             round++;
             roundDone();
         }
-    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
