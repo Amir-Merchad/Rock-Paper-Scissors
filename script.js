@@ -13,46 +13,50 @@ const win = document.querySelector(".status");
 const p1Weapon = document.querySelector(".p1-weapon");
 const p2Weapon = document.querySelector(".p2-weapon");
 const winner = document.querySelector(".winner");
+let shouldRun = false;
+let hide = 0;
 
-function getplayer1Choice(name) {
+//human vs computer
+function getPlayer1Choice(name) {
     if (name === "Computer") {
         let y = Math.floor(Math.random() * choices.length);
-        if (player1Choice === "rock") {
+        if (choices[y] === "rock") {
             p1Weapon.textContent = "✊";
-        } else if (player1Choice === "paper") {
+        } else if (choices[y] === "paper") {
             p1Weapon.textContent = "✋";
-        } else if (player1Choice === "scissors") {
+        } else if (choices[y] === "scissors") {
             p1Weapon.textContent = "✌️";
         }
         return choices[y];
     }
 }
 
-function getplayer2Choice(name) {
+function getPlayer2Choice(name) {
     if (name === "Computer") {
         let x = Math.floor(Math.random() * choices.length);
-        if (player2Choice === "rock") {
+        if (choices[x] === "rock") {
             p2Weapon.textContent = "✊";
-        } else if (player2Choice === "paper") {
+        } else if (choices[x] === "paper") {
             p2Weapon.textContent = "✋";
-        } else if (player2Choice === "scissors") {
+        } else if (choices[x] === "scissors") {
             p2Weapon.textContent = "✌️";
         }
         return choices[x];
     }
 }
 
+//rock, paper, scissors buttons
 function rock(){
     if (player1Score < 5 && player2Score < 5) {
         if (turn % 2 !== 0) {
             player1Choice = "rock";
             p1Weapon.textContent = "✊";
             turn++;
-            player2Choice = getplayer2Choice("Computer");
+            player2Choice = getPlayer2Choice("Computer");
             turn++;
             playGame(player1Choice, player2Choice)
         } else {
-            getplayer1Choice("Computer");
+            getPlayer1Choice("Computer");
             turn++;
             player2Choice = "rock";
             p2Weapon.textContent = "✊";
@@ -70,11 +74,11 @@ function paper(){
             player1Choice = "paper";
             p1Weapon.textContent = "✋";
             turn++;
-            player2Choice = getplayer2Choice("Computer");
+            player2Choice = getPlayer2Choice("Computer");
             turn++;
             playGame(player1Choice, player2Choice)
         } else {
-            getplayer1Choice("Computer");
+            getPlayer1Choice("Computer");
             turn++;
             player2Choice = "paper";
             p2Weapon.textContent = "✋";
@@ -92,11 +96,11 @@ function scissors(){
             player1Choice = "scissors";
             p1Weapon.textContent = "✌️";
             turn++;
-            player2Choice = getplayer2Choice("Computer");
+            player2Choice = getPlayer2Choice("Computer");
             turn++;
             playGame(player1Choice, player2Choice)
         } else {
-            getplayer1Choice("Computer");
+            getPlayer1Choice("Computer");
             turn++;
             player2Choice = "scissors";
             p2Weapon.textContent = "✌️";
@@ -111,10 +115,16 @@ function scissors(){
 function resetGame() {
     player1Score = 0;
     player2Score = 0;
+    turn = 1;
     p1score.textContent = "Player 1: " + player1Score.toString();
     p2score.textContent = "Player 2: " + player2Score.toString();
     p1Weapon.textContent = "❔";
     p2Weapon.textContent = "❔";
+    win.textContent = "Choose your Weapon"
+    winner.textContent = "First to score 5 points wins the game";
+    if (hide === 1) {
+        startAutoPlay();
+    }
 }
 
 function playRound(player1Choice, player2Choice) {
@@ -164,6 +174,10 @@ function playRound(player1Choice, player2Choice) {
 
 function playGame(player1Choice, player2Choice) {
     playRound(player1Choice, player2Choice);
+    gameOver();
+}
+
+function gameOver() {
     if (player1Score >= 5 || player2Score >= 5) {
         winner.textContent = "Press restart to play again.";
     } else if (player1Score === 5 || player2Score === 5) {
@@ -185,22 +199,46 @@ function humanVsComputer() {
     window.location.href = "game.html";
     player1Name = 'Player'
     player2Name = "Computer";
+    hide = 0;
 }
 
 function humanVsHuman() {
     window.location.href = "#";
     player1Name = 'Player1'
     player2Name = "Player2";
+    hide = 0;
 }
 
 function computerVsComputer() {
+    localStorage.setItem('gameMode', 'computerVsComputer');
     window.location.href = "game.html";
-    player1Score = 0;
-    player2Score = 0;
-    round = 0;
-    player1Name = "Computer 1";
-    player2Name = "Computer 2";
-    computerPlay();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('gameMode') === 'computerVsComputer') {
+        player1Score = 0;
+        player2Score = 0;
+        round = 0;
+        player1Name = "Computer 1";
+        player2Name = "Computer 2";
+        hide = 1;
+        shouldRun = true;
+        Hide();
+        startAutoPlay();
+        localStorage.removeItem('gameMode');
+    }
+});
+
+function hideSelector() {
+    document.querySelectorAll('.selector').forEach(el => {
+        el.classList.add('hidden');
+    });
+}
+
+function showSelector() {
+    document.querySelectorAll('.selector').forEach(el => {
+        el.classList.remove('hidden');
+    });
 }
 
 function roundDone() {
@@ -253,6 +291,19 @@ function computerPlay() {
         }
 }
 
+let intervalId;
+
+function startAutoPlay() {
+    intervalId = setInterval(() => {
+        if (!shouldRun || player1Score >= 5 || player2Score >= 5) {
+            clearInterval(intervalId);
+            return;
+        }
+        Hide();
+        computerPlay();
+    }, 500);
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('page-enter');
     requestAnimationFrame(() => {
@@ -281,3 +332,12 @@ document.querySelectorAll('button[data-fade-link], a[data-fade-link]').forEach(e
         }
     });
 });
+
+
+function Hide() {
+    if (hide === 1) {
+        hideSelector();
+    } else {
+        showSelector();
+    }
+}
