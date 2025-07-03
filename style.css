@@ -75,14 +75,15 @@
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .content-wrapper {
-    flex: 1;
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     overflow: auto;
+    padding: 0;
 }
 
 .header{
@@ -296,6 +297,8 @@
     padding: 10px 0;
     background-color: #111720;
     flex-shrink: 0;
+    position: sticky;
+    bottom: 0;
 }
 .mygithub{
     color: #f8c44f;
