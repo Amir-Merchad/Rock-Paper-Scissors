@@ -15,6 +15,7 @@ const p2Weapon = document.querySelector(".p2-weapon");
 const winner = document.querySelector(".winner");
 let shouldRun = false;
 let hide = 0;
+let humanvshuman = false;
 
 //human vs computer
 function getPlayer1Choice(name) {
@@ -48,20 +49,21 @@ function getPlayer2Choice(name) {
 //rock, paper, scissors buttons
 function rock(){
     if (player1Score < 5 && player2Score < 5) {
-        if (turn % 2 !== 0) {
+        if (!humanvshuman) {
             player1Choice = "rock";
             p1Weapon.textContent = "✊";
-            turn++;
             player2Choice = getPlayer2Choice("Computer");
-            turn++;
             playGame(player1Choice, player2Choice)
-        } else {
-            getPlayer1Choice("Computer");
-            turn++;
-            player2Choice = "rock";
-            p2Weapon.textContent = "✊";
-            turn++;
-            playGame(player1Choice, player2Choice)
+        } else if (humanvshuman) {
+            if (turn % 2 !== 0) {
+                player1Choice = "rock";
+                win.textContent = "Waiting for Player 2...";
+                turn++;
+            } else {
+                player2Choice = "rock";
+                turn++;
+                playGame(player1Choice, player2Choice);
+            }
         }
     } else {
         winner.textContent = "Press restart to play again.";
@@ -70,20 +72,20 @@ function rock(){
 
 function paper(){
     if (player1Score < 5 && player2Score < 5) {
-        if (turn % 2 !== 0) {
+        if (!humanvshuman) {
             player1Choice = "paper";
-            p1Weapon.textContent = "✋";
-            turn++;
             player2Choice = getPlayer2Choice("Computer");
-            turn++;
             playGame(player1Choice, player2Choice)
-        } else {
-            getPlayer1Choice("Computer");
-            turn++;
-            player2Choice = "paper";
-            p2Weapon.textContent = "✋";
-            turn++;
-            playGame(player1Choice,player2Choice)
+        } else if (humanvshuman) {
+            if (turn % 2 !== 0) {
+                player1Choice = "paper";
+                win.textContent = "Waiting for Player 2...";
+                turn++;
+            } else {
+                player2Choice = "paper";
+                turn++;
+                playGame(player1Choice, player2Choice)
+            }
         }
     } else {
         winner.textContent = "Press restart to play again.";
@@ -92,20 +94,21 @@ function paper(){
 
 function scissors(){
     if (player1Score < 5 && player2Score < 5) {
-        if (turn % 2 !== 0) {
+        if (!humanvshuman) {
             player1Choice = "scissors";
             p1Weapon.textContent = "✌️";
-            turn++;
             player2Choice = getPlayer2Choice("Computer");
-            turn++;
             playGame(player1Choice, player2Choice)
-        } else {
-            getPlayer1Choice("Computer");
-            turn++;
-            player2Choice = "scissors";
-            p2Weapon.textContent = "✌️";
-            turn++;
-            playGame(player1Choice, player2Choice)
+        } else if (humanvshuman) {
+            if (turn % 2 !== 0) {
+                player1Choice = "scissors";
+                win.textContent = "Waiting for Player 2...";
+                turn++;
+            } else {
+                player2Choice = "scissors";
+                turn++;
+                playGame(player1Choice, player2Choice);
+            }
         }
     } else {
         winner.textContent = "Press restart to play again.";
@@ -173,6 +176,12 @@ function playRound(player1Choice, player2Choice) {
 }
 
 function playGame(player1Choice, player2Choice) {
+    if (player1Choice === "rock") p1Weapon.textContent = "✊";
+    else if (player1Choice === "paper") p1Weapon.textContent = "✋";
+    else if (player1Choice === "scissors") p1Weapon.textContent = "✌️";
+    if (player2Choice === "rock") p2Weapon.textContent = "✊";
+    else if (player2Choice === "paper") p2Weapon.textContent = "✋";
+    else if (player2Choice === "scissors") p2Weapon.textContent = "✌️";
     playRound(player1Choice, player2Choice);
     gameOver();
 }
@@ -203,11 +212,21 @@ function humanVsComputer() {
 }
 
 function humanVsHuman() {
-    window.location.href = "#";
-    player1Name = 'Player1'
-    player2Name = "Player2";
-    hide = 0;
+    localStorage.setItem('gameMode', 'humanVsHuman');
+    window.location.href = "game.html";
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('gameMode') === 'humanVsHuman') {
+        player1Name = 'Player1'
+        player2Name = "Player2";
+        hide = 0;
+        humanvshuman = true;
+        turn = 1;
+        player1Score = 0;
+        player2Score = 0;
+    }
+});
 
 function computerVsComputer() {
     localStorage.setItem('gameMode', 'computerVsComputer');
