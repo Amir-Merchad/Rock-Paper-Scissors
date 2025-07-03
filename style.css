@@ -80,18 +80,6 @@ html {
     background-color: #0056b3;
 }
 
-@media (max-width: 480px) {
-    .start-container {
-        padding: 1.5rem;
-        width: 95%;
-    }
-
-    .player-button {
-        font-size: 1.1rem;
-        padding: 1.2rem;
-    }
-}
-
 .gameBody{
     font-family: 'Roboto', sans-serif;
     background-color: #222831;
@@ -148,22 +136,6 @@ html {
 .homeButton:active {
     transform: scale(0.95);
     background-color: #4e555b;
-}
-
-@media (max-width: 765px) {
-    .homeButton {
-        top: 50px;
-        left: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .homeButton {
-        top: 25px;
-        left: 12px;
-        padding: 5px 5px 5px 5px;
-        font-size: 24px;
-    }
 }
 
 .status{
@@ -239,13 +211,6 @@ html {
     outline: none;
 }
 
-@media (max-width: 480px) {
-    .weapon, .score {
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
-}
-
 .rock:hover, .paper:hover,.scissors:hover{
     background-color: #4e555b;
 }
@@ -254,36 +219,6 @@ html {
     transform: scale(0.96);
     box-shadow: 0 2px #2e7d32;
     touch-action: manipulation;
-}
-
-@media (max-width: 768px) {
-    .p1-weapon, .p2-weapon {
-        font-size: 60px;
-    }
-
-    .p1-score, .p2-score {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
-        font-size: 24px;
-        padding: 20px;
-    }
-
-    .status, .winner {
-        font-size: 16px;
-    }
-
-    .p1-weapon, .p2-weapon {
-        font-size: 40px;
-    }
-
-    .rock, .paper, .scissors {
-        font-size: 60px;
-        padding: 10px;
-    }
 }
 
 .restart{
