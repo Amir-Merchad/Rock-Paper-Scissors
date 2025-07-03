@@ -212,15 +212,12 @@ function roundDone() {
         }
         if (player2Choice === "rock") {
             p2Weapon.textContent = "✊";
-            alert("round")
             playGame(player1Choice, player2Choice);
         } else if (player2Choice === "paper") {
             p2Weapon.textContent = "✋";
-            alert("round")
             playGame(player1Choice, player2Choice);
         } else if (player2Choice === "scissors") {
             p2Weapon.textContent = "✌️";
-            alert("round")
             playGame(player1Choice, player2Choice);
         }
     }
