@@ -3,6 +3,31 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 15px;
+    }
+}
+@media (max-width: 992px) {
+    html {
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+}
+
 .indexBody{
     background-image: url("./images/background.jpg");
     background-size: cover;
@@ -215,15 +240,9 @@
 }
 
 @media (max-width: 480px) {
-    .selector {
-        flex-direction: row;
-        gap: 1.5rem;
-        height: auto;
-    }
-    .rock, .paper, .scissors {
-        width: auto;
-        height: auto;
-        flex-wrap: nowrap;
+    .weapon, .score {
+        gap: 2rem;
+        flex-wrap: wrap;
     }
 }
 
@@ -272,23 +291,24 @@
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    gap: 20px;
 }
 
-.restart-button{
+.restart-button, .computer-play{
     border-radius: 12px;
     background-color: #393e45;
     border-style: none;
     padding: 10px;
-    margin: 0 0 20px 0;
+    margin: 0 10px 10px 10px;
     font-size: 30px;
     cursor: pointer;
-    min-width: 80px;
+    width: 205px;
     min-height: 50px;
     -webkit-tap-highlight-color: transparent;
     outline: none;
 }
 
-.restart-button:hover {
+.computer-play:hover , .restart-button:hover{
     background-color: #4e555b;
 }
 
@@ -325,3 +345,51 @@ body.page-exit-active {
     opacity: 0;
 }
 
+@media (max-width: 480px) {
+    .start-container {
+        padding: 1.5rem;
+        width: 95%;
+        margin: 0 10px;
+    }
+
+    .player-button {
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .selector {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .rock, .paper, .scissors {
+        flex: 1 1 30%;
+        max-width: 90px;
+        font-size: 50px;
+        padding: 12px;
+    }
+
+    .weapon, .score {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .restart-button, .computer-play {
+        font-size: 1.2rem;
+        width: 100%;
+        min-height: 55px;
+        padding: 12px;
+    }
+
+    .status, .winner {
+        padding: 0 10px;
+    }
+
+    .homeButton {
+        top: 20px;
+        left: 10px;
+        padding: 8px;
+        font-size: 20px;
+    }
+}

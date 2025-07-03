@@ -4,8 +4,8 @@ let player2Score = 0;
 let player1Name = "";
 let player2Name = "";
 let turn = 1;
-let player1choice = "";
-let player2choice = "";
+let player1Choice = "none";
+let player2Choice = "none";
 let round = 0;
 const p1score = document.querySelector(".p1-score");
 const p2score = document.querySelector(".p2-score");
@@ -14,28 +14,28 @@ const p1Weapon = document.querySelector(".p1-weapon");
 const p2Weapon = document.querySelector(".p2-weapon");
 const winner = document.querySelector(".winner");
 
-function getPlayer1Choice(name) {
+function getplayer1Choice(name) {
     if (name === "Computer") {
         let y = Math.floor(Math.random() * choices.length);
-        if (choices[y] === "rock") {
+        if (player1Choice === "rock") {
             p1Weapon.textContent = "✊";
-        } else if (choices[y] === "paper") {
+        } else if (player1Choice === "paper") {
             p1Weapon.textContent = "✋";
-        } else if (choices[y] === "scissors") {
+        } else if (player1Choice === "scissors") {
             p1Weapon.textContent = "✌️";
         }
         return choices[y];
     }
 }
 
-function getPlayer2Choice(name) {
+function getplayer2Choice(name) {
     if (name === "Computer") {
         let x = Math.floor(Math.random() * choices.length);
-        if (choices[x] === "rock") {
+        if (player2Choice === "rock") {
             p2Weapon.textContent = "✊";
-        } else if (choices[x] === "paper") {
+        } else if (player2Choice === "paper") {
             p2Weapon.textContent = "✋";
-        } else if (choices[x] === "scissors") {
+        } else if (player2Choice === "scissors") {
             p2Weapon.textContent = "✌️";
         }
         return choices[x];
@@ -45,19 +45,19 @@ function getPlayer2Choice(name) {
 function rock(){
     if (player1Score < 5 && player2Score < 5) {
         if (turn % 2 !== 0) {
-            player1choice = "rock";
+            player1Choice = "rock";
             p1Weapon.textContent = "✊";
             turn++;
-            player2choice = getPlayer2Choice("Computer");
+            player2Choice = getplayer2Choice("Computer");
             turn++;
-            playGame(player1choice, player2choice)
+            playGame(player1Choice, player2Choice)
         } else {
-            getPlayer1Choice("Computer");
+            getplayer1Choice("Computer");
             turn++;
-            player2choice = "rock";
+            player2Choice = "rock";
             p2Weapon.textContent = "✊";
             turn++;
-            playGame(player1choice, player2choice)
+            playGame(player1Choice, player2Choice)
         }
     } else {
         winner.textContent = "Press restart to play again.";
@@ -67,19 +67,19 @@ function rock(){
 function paper(){
     if (player1Score < 5 && player2Score < 5) {
         if (turn % 2 !== 0) {
-            player1choice = "paper";
+            player1Choice = "paper";
             p1Weapon.textContent = "✋";
             turn++;
-            player2choice = getPlayer2Choice("Computer");
+            player2Choice = getplayer2Choice("Computer");
             turn++;
-            playGame(player1choice, player2choice)
+            playGame(player1Choice, player2Choice)
         } else {
-            getPlayer1Choice("Computer");
+            getplayer1Choice("Computer");
             turn++;
-            player2choice = "paper";
+            player2Choice = "paper";
             p2Weapon.textContent = "✋";
             turn++;
-            playGame(player1choice,player2choice)
+            playGame(player1Choice,player2Choice)
         }
     } else {
         winner.textContent = "Press restart to play again.";
@@ -89,19 +89,19 @@ function paper(){
 function scissors(){
     if (player1Score < 5 && player2Score < 5) {
         if (turn % 2 !== 0) {
-            player1choice = "scissors";
+            player1Choice = "scissors";
             p1Weapon.textContent = "✌️";
             turn++;
-            player2choice = getPlayer2Choice("Computer");
+            player2Choice = getplayer2Choice("Computer");
             turn++;
-            playGame(player1choice, player2choice)
+            playGame(player1Choice, player2Choice)
         } else {
-            getPlayer1Choice("Computer");
+            getplayer1Choice("Computer");
             turn++;
-            player2choice = "scissors";
+            player2Choice = "scissors";
             p2Weapon.textContent = "✌️";
             turn++;
-            playGame(player1choice, player2choice)
+            playGame(player1Choice, player2Choice)
         }
     } else {
         winner.textContent = "Press restart to play again.";
@@ -180,27 +180,81 @@ function playGame(player1Choice, player2Choice) {
 }
 
 function humanVsComputer() {
+    window.location.href = "game.html";
     player1Name = 'Player'
     player2Name = "Computer";
-    window.location.href = "game.html";
 }
 
 function humanVsHuman() {
-    alert("Under construction, please try again later. :)");
-    /*
+    window.location.href = "#";
     player1Name = 'Player1'
     player2Name = "Player2";
-    window.location.href = "game.html";
-    */
 }
 
 function computerVsComputer() {
-    alert("Under construction, please try again later. :)");
-    /*
-    player1Name = 'Computer 1';
-    player2Name = "Computer 2";
     window.location.href = "game.html";
-    */
+    player1Score = 0;
+    player2Score = 0;
+    round = 0;
+    player1Name = "Computer 1";
+    player2Name = "Computer 2";
+    computerPlay();
+}
+
+function roundDone() {
+    if (player1Score < 5 && player2Score < 5) {
+        if (player1Choice === "rock") {
+            p1Weapon.textContent = "✊";
+        } else if (player1Choice === "paper") {
+            p1Weapon.textContent = "✋";
+        } else if (player1Choice === "scissors") {
+            p1Weapon.textContent = "✌️";
+        }
+        if (player2Choice === "rock") {
+            p2Weapon.textContent = "✊";
+            alert("round")
+            playGame(player1Choice, player2Choice);
+        } else if (player2Choice === "paper") {
+            p2Weapon.textContent = "✋";
+            alert("round")
+            playGame(player1Choice, player2Choice);
+        } else if (player2Choice === "scissors") {
+            p2Weapon.textContent = "✌️";
+            alert("round")
+            playGame(player1Choice, player2Choice);
+        }
+    }
+}
+
+function computerPlay() {
+    if (round % 2 === 0) {
+        let x = Math.floor(Math.random() * choices.length);
+        if (x === 0) {
+            player1Choice = "rock";
+            round++;
+        } else if (x === 1) {
+            player1Choice = "paper";
+            round++;
+        } else if (x === 2) {
+            player1Choice = "scissors";
+            round++;
+        }
+    } else if (round % 2 !== 0) {
+        let y = Math.floor(Math.random() * choices.length);
+        if (y === 0) {
+            player2Choice = "rock";
+            round++;
+            roundDone();
+        } else if (y === 1) {
+            player2Choice = "paper";
+            round++;
+            roundDone();
+        } else if (y === 2) {
+            player2Choice = "scissors";
+            round++;
+            roundDone();
+        }
+    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
