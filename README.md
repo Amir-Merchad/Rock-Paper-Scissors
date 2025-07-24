@@ -3,7 +3,7 @@
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![GitHub Stars](https://img.shields.io/github/stars/amir-merchad/rock-paper-scissors?style=social)](https://amir-merchad.github.io/Rock-Paper-Scissors/)
+[![GitHub Stars](https://img.shields.io/github/stars/amir-merchad/rock-paper-scissors?style=social)](https://github.com/Amir-Merchad/Rock-Paper-Scissors/)
 
 A dynamic Rock Paper Scissors game built using HTML, CSS, and JavaScript with multiple game modes and a custom animated cursor. Created as a fun practice project using [WebStorm](https://www.jetbrains.com/webstorm/) IDE.
 
