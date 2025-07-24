@@ -205,13 +205,25 @@ function gameOver() {
 }
 
 function humanVsComputer() {
+    humanvshuman = false;
+    localStorage.setItem('gameMode', 'humanVsComputer')
     window.location.href = "game.html";
-    player1Name = 'Player'
-    player2Name = "Computer";
-    hide = 0;
 }
 
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('gameMode') === 'humanVsComputer') {
+        player1Name = 'Player1'
+        player2Name = "Computer 1";
+        hide = 0;
+        humanvshuman = false;
+        turn = 1;
+        player1Score = 0;
+        player2Score = 0;
+    }
+});
+
 function humanVsHuman() {
+    humanvshuman = true;
     localStorage.setItem('gameMode', 'humanVsHuman');
     window.location.href = "game.html";
 }
@@ -229,6 +241,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function computerVsComputer() {
+    humanvshuman = false;
     localStorage.setItem('gameMode', 'computerVsComputer');
     window.location.href = "game.html";
 }
@@ -245,6 +258,7 @@ window.addEventListener('DOMContentLoaded', () => {
         Hide();
         startAutoPlay();
         localStorage.removeItem('gameMode');
+        humanvshuman = false;
     }
 });
 
@@ -283,6 +297,7 @@ function roundDone() {
 }
 
 function computerPlay() {
+    humanvshuman = false;
         let x = Math.floor(Math.random() * choices.length);
         if (x === 0) {
             player1Choice = "rock";

@@ -12,23 +12,26 @@ html {
         font-size: 15px;
     }
 }
+
 @media (max-width: 992px) {
     html {
         font-size: 14px;
     }
 }
+
 @media (max-width: 768px) {
     html {
         font-size: 13px;
     }
 }
+
 @media (max-width: 480px) {
     html {
         font-size: 12px;
     }
 }
 
-.indexBody{
+.indexBody {
     background-image: url("./images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -68,7 +71,7 @@ html {
 .player-button {
     padding: 1rem;
     font-size: 1rem;
-    cursor: pointer;
+    cursor: none;
     border: none;
     border-radius: 8px;
     background-color: #007bff;
@@ -80,7 +83,7 @@ html {
     background-color: #0056b3;
 }
 
-.gameBody{
+.gameBody {
     font-family: 'Roboto', sans-serif;
     background-color: #222831;
     display: flex;
@@ -100,7 +103,7 @@ html {
     padding: 0;
 }
 
-.header{
+.header {
     padding: 40px;
     margin: 0;
     text-align: center;
@@ -108,10 +111,10 @@ html {
     color: #f8c44f;
     font-size: 36px;
     font-weight: 600;
-    font-family: 'Press Start 2P',sans-serif;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
-.homeButton{
+.homeButton {
     position: absolute;
     top: 32px;
     left: 20px;
@@ -120,7 +123,7 @@ html {
     border: none;
     padding: 12px 18px;
     font-size: 20px;
-    cursor: pointer;
+    cursor: none;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -138,7 +141,7 @@ html {
     background-color: #4e555b;
 }
 
-.status{
+.status {
     color: white;
     font-size: calc(16px + 1vw);
     text-align: center;
@@ -146,7 +149,7 @@ html {
     font-weight: 600;
 }
 
-.winner{
+.winner {
     color: white;
     font-size: calc(12px + 0.8vw);
     text-align: center;
@@ -157,7 +160,7 @@ html {
     line-height: 1.4;
 }
 
-.weapon{
+.weapon {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -172,20 +175,21 @@ html {
     font-size: 90px;
 }
 
-.score{
+.score {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 100px;
     margin-top: 10px;
 }
+
 .p1-score, .p2-score {
     color: white;
     font-size: 24px;
     font-weight: 600;
 }
 
-.selector{
+.selector {
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -204,24 +208,24 @@ html {
     padding: 20px;
     margin: 0;
     font-size: 90px;
-    cursor: pointer;
+    cursor: none;
     min-width: 80px;
     min-height: 80px;
     -webkit-tap-highlight-color: transparent;
     outline: none;
 }
 
-.rock:hover, .paper:hover,.scissors:hover{
+.rock:hover, .paper:hover, .scissors:hover {
     background-color: #4e555b;
 }
 
-.rock:active, .paper:active, .scissors:active, .restart-button:active{
+.rock:active, .paper:active, .scissors:active, .restart-button:active {
     transform: scale(0.96);
     box-shadow: 0 2px #2e7d32;
     touch-action: manipulation;
 }
 
-.restart{
+.restart {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,25 +233,25 @@ html {
     gap: 20px;
 }
 
-.restart-button, .computer-play{
+.restart-button, .computer-play {
     border-radius: 12px;
     background-color: #393e45;
     border-style: none;
     padding: 10px;
     margin: 0 10px 10px 10px;
     font-size: 30px;
-    cursor: pointer;
+    cursor: none;
     width: 205px;
     min-height: 50px;
     -webkit-tap-highlight-color: transparent;
     outline: none;
 }
 
-.computer-play:hover , .restart-button:hover{
+.computer-play:hover, .restart-button:hover {
     background-color: #4e555b;
 }
 
-.footer{
+.footer {
     text-align: center;
     color: white;
     padding: 10px 0;
@@ -256,7 +260,8 @@ html {
     position: sticky;
     bottom: 0;
 }
-.mygithub{
+
+.mygithub {
     color: #f8c44f;
     text-decoration: none;
 }
@@ -331,4 +336,30 @@ body.page-exit-active {
 
 .hidden {
     display: none;
+}
+
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background-color: #393e45;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor1 {
+    width: 30px;
+    height: 30px;
+    background-color: #393e45;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+}
+
+body {
+    cursor: none;
 }

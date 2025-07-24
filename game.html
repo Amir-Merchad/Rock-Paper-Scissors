@@ -8,8 +8,14 @@
 	<title>Game</title>
 </head>
 <body class="gameBody">
+<div class="custom-cursor1" id="cursor"></div>
 <div class="content-wrapper">
-	<header class="header"><button data-fade-link="index.html" class="homeButton go-button" onclick="window.location.href='index.html' "><</button>Rock Paper Scissors</header>
+	<header class="header">
+		<button data-fade-link="index.html" class="homeButton go-button" onclick="window.location.href='index.html' ">
+			<
+		</button>
+		Rock Paper Scissors
+	</header>
 	<div class="status">Choose your Weapon</div>
 	<div class="winner">First to score 5 points wins the game</div>
 	<div class="weapon">
@@ -32,8 +38,17 @@
 	</div>
 </div>
 
-	<footer class="footer">Copy Right © 2025 <a href="https://github.com/Amir-Merchad" class="mygithub">Amir Merchad</a></footer>
+<footer class="footer">Copy Right © 2025 <a href="https://github.com/Amir-Merchad" class="mygithub">Amir Merchad</a>
+</footer>
 
-	<script src="script.js"></script>
+<script src="script.js"></script>
 </body>
+<script>
+	const cursor = document.getElementById('cursor');
+
+	document.addEventListener('mousemove', (e) => {
+		cursor.style.left = e.clientX + 'px';
+		cursor.style.top = e.clientY + 'px';
+	});
+</script>
 </html>
